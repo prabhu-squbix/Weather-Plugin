@@ -9,7 +9,16 @@
  * @since Twenty Twenty-Two 1.0
  */
 
+ function enqueue_jquery() {
+    wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'enqueue_jquery');
 
+
+
+// Server-side code to handle the AJAX request
+add_action('wp_ajax_get_weather_data', 'get_weather_data_callback');
+add_action('wp_ajax_nopriv_get_weather_data', 'get_weather_data_callback');
 if ( ! function_exists( 'twentytwentytwo_support' ) ) :
 
 	/**
